@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.glide__slide {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.glide__slide:active {
+    cursor: grab;
+}
+
+.glide__slide[data-index='1'] {
+    background: url(./img/product-slide_1_4000x.jpg) no-repeat center center/cover fixed;
+}
+
+.glide__slide[data-index='2'] {
+    background: url(./img/product-slide_2_4000x.jpg) no-repeat center center/cover fixed;
+}
+
+.glide__slide[data-index='3'] {
+    background: url(./img/product-slide_3_4000x.jpg) no-repeat center center/cover fixed;
+}
+
+.glide__slide[data-index='4'] {
+    background: url(./img/product-slide_5_4000x.jpg) no-repeat center center/cover fixed;
+}
+
+.glide__slide[data-index='5'] {
+    background: url(./img/product-slide_4_4000x.jpg) no-repeat center center/cover fixed;
+}
+
+.content {
+    position: relative;
+    top: 80%;
+    width: 600px;
+    background: #183661;
+    padding: 20px;
+    opacity: 0;
+}
+
+.current .content {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .95s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.current .content * {
+    opacity: 0;
+    animation: appear-content 0.0001s linear forwards;
+    animation-delay: 1.6s;
+}
+
+.current .content:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #dd6b4d;
+    animation: content 2s cubic-bezier(.19, 1, .22, 1) forwards;
+    animation-delay: 1s;
+}
+
+@keyframes content {
+    0% {
+        left: 0;
+        width: 0px;
+    }
+    50% {
+        left: 0;
+        width: 100%;
+    }
+    100% {
+        left: 0;
+        width: 0;
+    }
+}
+
+@keyframes appear-content {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+h1, p {
+    color: #dae1e7;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 2px;
+    background-color: #dae1e7;
+    border: none;
+}
